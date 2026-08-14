@@ -1,8 +1,7 @@
 ---
 name: handoff
-description: Compact the current conversation into a handoff document, then spawn a fresh agent in a Spaces terminal and hand the work off to it.
+description: Compact the current conversation into a handoff document, then spawn a fresh agent in a Spaces terminal and hand the work off to it. Use when the user asks to hand off, hand over, or continue this work in a fresh session or agent, or when accumulated stale context is degrading the current session - in that case propose the handoff and confirm before running it.
 argument-hint: "What will the next session be used for?"
-disable-model-invocation: true
 ---
 
 Write a handoff document summarising the current conversation so a fresh agent can continue the work, then use the Spaces MCP tools to spawn that agent and point it at the document.
