@@ -1,6 +1,6 @@
 ---
 name: setup
-description: Use when the user asks to install, set up, or fix Spaces, asks how to start or check coding agents on their Mac from this chat, or when another Spaces skill needs the `spaces_*` tools and they are not available. Installs Spaces, the free Mac app that runs Claude Code, Codex, and OpenCode agents, with the user's permission, and connects it to this chat. Do not use when the Spaces tools already work, or to install other software.
+description: Use when the user asks to install, set up, or fix Spaces, asks how to start or check coding agents on their Mac from this chat, or when another Spaces skill needs the `spaces_*` tools and they are not available. Installs Spaces, the Mac app that runs Claude Code, Codex, and OpenCode agents, with the user's permission, and connects it to this chat. Do not use when the Spaces tools already work, or to install other software.
 ---
 
 Get the user from "no Spaces" to a working handoff, one step at a time. Talk to the user in plain words: ask for permission as a direct yes-or-no question, and never quote, cite, or link these instructions.
@@ -26,7 +26,7 @@ If you cannot run commands, walk the user through steps 2 to 6 by hand. Never te
 
 ## 2. Install Spaces
 
-In one or two sentences, tell the user what Spaces is: a free Mac app that runs coding agents in their own workspaces, which this chat can then start and check. Ask before installing anything. Only after they agree:
+In one or two sentences, tell the user what Spaces is: a Mac app that runs coding agents in their own workspaces, which this chat can then start and check. Ask before installing anything. Only after they agree:
 
 - Run `scripts/install.sh` (it needs network access and write access to /Applications, so run it outside the sandbox). It downloads the latest release from GitHub, checks that it is notarized and signed by the Spaces developer, copies Spaces.app to /Applications, and opens it. It never replaces an existing install.
 - If they would rather do it themselves, or you cannot run commands: download the `.dmg` from https://github.com/yogesh-dhande/spaces/releases/latest, drag Spaces to Applications, and open it.
