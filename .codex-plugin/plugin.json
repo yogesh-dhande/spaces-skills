@@ -1,7 +1,7 @@
 {
   "name": "spaces",
   "version": "1.0.0",
-  "description": "Hand off a conversation to Claude Code, Codex, or OpenCode on your Mac, and check on the coding agents you have running.",
+  "description": "Hand off a conversation to a coding agent on your Mac, and check on the coding agents you have running.",
   "author": {
     "name": "Yogesh Dhande",
     "url": "https://usespaces.dev"
@@ -10,9 +10,7 @@
   "repository": "https://github.com/yogesh-dhande/spaces-skills",
   "keywords": [
     "spaces",
-    "claude code",
     "codex",
-    "opencode",
     "coding agent",
     "handoff",
     "hand off",
@@ -27,8 +25,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Spaces: Coding Agents",
-    "shortDescription": "Chats to Claude/Codex/OpenCode",
-    "longDescription": "Use Spaces when you want a coding agent on your Mac to take over work you planned in this conversation, or to check on agents that are already running.\n\nSay \"start this in Claude Code,\" \"hand this off to Codex,\" or \"kick this off on a separate branch.\" Spaces creates a fresh workspace on its own git branch in your project, starts the agent you choose (Claude Code, Codex, or OpenCode), and gives it a brief written from this conversation, so you never write a handoff prompt yourself.\n\nLater, ask \"what are my coding agents doing?\" or \"is anything stuck?\" for a status roll-up across your Mac and paired machines, with blocked agents first and their exact questions quoted. Say \"unblock my agents\" to clear routine startup prompts; real decisions always come back to you.\n\nNot for writing or explaining code in the chat itself. Spaces runs agents on your own machines, not in the cloud.\n\nWorks in the ChatGPT desktop app (Work mode) and Codex on a Mac with macOS 14 or later. Requires the Spaces app (usespaces.dev); if it is not installed, the plugin walks you through installing and connecting it, asking before each change.",
+    "shortDescription": "Hand off chats to your agents",
+    "longDescription": "Use Spaces when you want a coding agent on your Mac to take over work you planned in this conversation, or to check on agents that are already running.\n\nSay \"hand this off to Codex,\" \"start this on my Mac,\" or \"kick this off on a separate branch.\" Spaces creates a fresh workspace on its own git branch in your project, starts the coding agent you choose, and gives it a brief written from this conversation, so you never write a handoff prompt yourself. It works with Codex and the other terminal coding agents you have installed.\n\nLater, ask \"what are my coding agents doing?\" or \"is anything stuck?\" for a status roll-up across your Mac and paired machines, with blocked agents first and their exact questions quoted. Say \"unblock my agents\" to clear routine startup prompts; real decisions always come back to you.\n\nNot for writing or explaining code in the chat itself. Spaces runs agents on your own machines, not in the cloud.\n\nWorks in the ChatGPT desktop app (Work mode) and Codex on a Mac with macOS 14 or later. Requires the Spaces app (usespaces.dev); if it is not installed, the plugin walks you through installing and connecting it, asking before each change.",
     "developerName": "Yogesh Dhande",
     "category": "Developer Tools",
     "capabilities": [
@@ -39,7 +37,7 @@
     "supportURL": "https://github.com/yogesh-dhande/spaces/discussions",
     "privacyPolicyURL": "https://usespaces.dev/privacy/",
     "defaultPrompt": [
-      "Start this in Claude Code on my Mac",
+      "Start this in a coding agent on my Mac",
       "Hand this plan off to Codex on a new branch",
       "What are my coding agents doing?"
     ],
@@ -50,7 +48,7 @@
     "com.openai": {
       "onboardingSkill": "./skills/setup/SKILL.md",
       "publication": {
-        "release_notes": "First release: hand off a conversation to Claude Code, Codex, or OpenCode on your Mac; dispatch new tasks to their own branches; check on and unblock running agents; guided setup that installs and connects Spaces with your permission."
+        "release_notes": "First release: hand off a conversation to a coding agent on your Mac; dispatch new tasks to their own branches; check on and unblock running agents; guided setup that installs and connects Spaces with your permission."
       }
     }
   }
