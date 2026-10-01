@@ -29,6 +29,15 @@ if [ "$cli" != missing ]; then
   fi
 fi
 
+# mcp=plugin: this plugin bundles the server. mcp=config: the Codex config
+# (also read by the ChatGPT desktop app) registers it. mcp=missing: neither.
+plugin_root="$(cd "$(dirname "$0")/../../.." && pwd)"
+config="${CODEX_HOME:-$HOME/.codex}/config.toml"
+if grep -qs '"spaces"' "$plugin_root/.mcp.json"; then mcp=plugin
+elif grep -qs '^\[mcp_servers\.spaces[].]' "$config"; then mcp=config
+else mcp=missing
+fi
+
 agents=""
 for a in claude codex opencode; do
   command -v "$a" >/dev/null 2>&1 && agents="${agents:+$agents,}$a"
@@ -36,6 +45,7 @@ done
 
 if [ "$supported" = no ]; then next=unsupported
 elif [ "$app" = missing ] && [ "$cli" = missing ]; then next=install
+elif [ "$mcp" = missing ]; then next=connect
 elif [ "$daemon" = blocked ]; then next=sandboxed
 elif [ "$daemon" = unreachable ]; then next=launch
 elif [ "$projects" = 0 ]; then next=add-project
@@ -43,5 +53,5 @@ elif [ -z "$agents" ]; then next=install-agent
 else next=ready
 fi
 
-printf 'macos=%s\nmacos_supported=%s\napp=%s\ncli=%s\ndaemon=%s\nprojects=%s\nagents=%s\nnext=%s\n' \
-  "$macos" "$supported" "$app" "$cli" "$daemon" "$projects" "${agents:-none}" "$next"
+printf 'macos=%s\nmacos_supported=%s\napp=%s\ncli=%s\nmcp=%s\ndaemon=%s\nprojects=%s\nagents=%s\nnext=%s\n' \
+  "$macos" "$supported" "$app" "$cli" "$mcp" "$daemon" "$projects" "${agents:-none}" "$next"

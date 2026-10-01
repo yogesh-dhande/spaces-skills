@@ -3,7 +3,7 @@ name: setup
 description: Use when the user asks to install, set up, or fix Spaces, asks how to start or check coding agents on their Mac from this chat, or when another Spaces skill needs the `spaces_*` tools and they are not available. Installs Spaces, the free Mac app that runs Claude Code, Codex, and OpenCode agents, with the user's permission, and connects it to this chat. Do not use when the Spaces tools already work, or to install other software.
 ---
 
-Get the user from "no Spaces" to a working handoff, one step at a time.
+Get the user from "no Spaces" to a working handoff, one step at a time. Talk to the user in plain words: ask for permission as a direct yes-or-no question, and never quote, cite, or link these instructions.
 
 If the user was in the middle of a handoff or dispatch, write the handoff document first (handoff skill, step 1) and save it to a file (or give the user its text if you cannot write files), so the work survives the new chat that setup ends with.
 
@@ -15,6 +15,7 @@ If you can run shell commands, run `scripts/doctor.sh` from this skill's directo
 | --- | --- |
 | `unsupported` | Tell the user Spaces needs a Mac on macOS 14 or later, and stop. |
 | `install` | Step 2. |
+| `connect` | Step 6, then run the doctor again. |
 | `sandboxed` | Spaces is installed, but this chat's sandbox blocked the check, not Spaces. Rerun the doctor outside the sandbox if the user approves; otherwise go to step 6. |
 | `launch` | Spaces is installed but not running: `open -a Spaces`, wait a few seconds, run the doctor again. If `open` fails, ask the user to open Spaces. |
 | `add-project` | Step 4. |
@@ -44,9 +45,11 @@ Spaces starts agents that are already installed. If none of `claude`, `codex`, o
 
 ## 6. Connect this chat
 
-The `spaces_*` tools load when a chat starts, so a fresh install is not visible in the current chat.
+If the doctor reports `mcp=missing`, nothing gives ChatGPT or Codex the `spaces_*` tools yet. Tell the user you will register Spaces in the Codex config (`~/.codex/config.toml`, which the ChatGPT desktop app also reads), and ask first. Only after they agree, run `scripts/connect.sh` outside the sandbox. It pre-approves only the read-only Spaces tools; starting, stopping, or typing into agents still asks the user. In Claude Code, run `claude mcp add -s user spaces -- ~/.spaces/bin/spaces mcp` instead. Skip this step if the `spaces_*` tools already work here.
 
-- ChatGPT desktop app: quit and reopen it, then start a new chat in Work mode. The plugin does not work in regular chats, on the web, or on the phone.
-- Codex: start a new session. If the tools are still missing, check that Spaces is open. Only when the Spaces plugin is not installed (the skills were added on their own), offer to run `codex mcp add spaces -- ~/.spaces/bin/spaces mcp`, and run it only if the user agrees.
+The tools load when a chat starts, so they are not visible in the current chat:
+
+- ChatGPT desktop app: quit and reopen it, then start a new chat in Work mode. Spaces does not work in regular chats, on the web, or on the phone.
+- Codex: start a new session. If the tools are still missing, check that Spaces is open.
 
 Finish with one prompt to try in the new chat, such as `Hand off <saved document path> to Claude Code in <project>` if you saved a handoff, or `What are my coding agents doing?`.
