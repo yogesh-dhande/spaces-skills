@@ -1,13 +1,13 @@
 ---
 name: unblock
-description: Find blocked coding agents across Spaces devices, answer the mechanical prompts holding them up, and surface real questions to the user. Use when the user asks to unblock agents, clear pending dialogs, or get stalled agents moving again, or when a status check has surfaced blocked agents and the user wants them handled.
+description: Use when the user wants stuck or waiting coding agents moving again - "unblock my agents", "Claude Code is waiting on a trust prompt", "clear the pending dialogs" - or when a status check found blocked agents and the user wants them handled. Answers mechanical prompts such as folder trust and press-Enter, and brings real questions back to the user word for word. Do not use only to check status (use standup).
 ---
 
-Get blocked agents moving again. Requires the Spaces MCP server (`spaces` tools). Pairs well with `/loop` for babysitting a fleet.
+Get blocked agents moving again. Requires the Spaces MCP server (`spaces` tools); if they are not available, use the setup skill instead. Pairs well with `/loop` for babysitting a fleet.
 
 ## 1. Find blocked agents
 
-`spaces_device_list`, then `spaces_agent_list` for this machine and each reachable device. For every agent that is blocked or waiting, read `spaces_terminal_tail` (`lines`: 40) to see the exact prompt on screen.
+`spaces_device_list`, then `spaces_agent_list` for this machine and each reachable device. If the user limited the scope (a project, workspace, or device), consider only agents inside it and leave every other agent untouched. For every agent that is blocked or waiting, read `spaces_terminal_tail` (`lines`: 40) to see the exact prompt on screen.
 
 ## 2. Decide: answer or escalate
 
@@ -21,6 +21,7 @@ NEVER auto-answer - always surface to the user instead:
 
 - destructive or hard-to-reverse confirmations (delete, overwrite, force-push, publish, deploy)
 - credential, auth, or payment prompts
+- requests to trust hooks, tools, or anything that runs outside the sandbox
 - design decisions, plan approvals, or any open question the agent asked
 - anything ambiguous - when unsure, escalate
 

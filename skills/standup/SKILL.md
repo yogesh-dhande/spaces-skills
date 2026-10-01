@@ -1,11 +1,11 @@
 ---
 name: standup
-description: Survey every coding agent running across Spaces devices and summarize who is working, blocked, done, or waiting on input. Use when the user asks what their agents are doing, for a status roll-up or standup, to check on running or dispatched agents, or whether anything is blocked or finished.
+description: Use when the user asks what their coding agents are doing, whether an agent is done, stuck, or waiting on them, or wants a status roll-up of agents across Spaces devices. Read-only - it summarizes who is working, blocked, done, or waiting on input. Do not use for CI builds, deploys, or other jobs that are not coding agents, or to answer a blocked agent (use unblock).
 ---
 
 Give the user a status roll-up of their agents. Read-only: never send input to a terminal from this skill.
 
-Requires the Spaces MCP server (`spaces` tools).
+Requires the Spaces MCP server (`spaces` tools). If they are not available, use the setup skill instead.
 
 ## Gather
 
