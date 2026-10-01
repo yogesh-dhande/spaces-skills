@@ -29,14 +29,10 @@ if [ "$cli" != missing ]; then
   fi
 fi
 
-# mcp=plugin: this plugin bundles the server. mcp=config: the Codex config
-# (also read by the ChatGPT desktop app) registers it. mcp=missing: neither.
-plugin_root="$(cd "$(dirname "$0")/../../.." && pwd)"
+# mcp=config: the Codex config (also read by the ChatGPT desktop app) registers
+# the Spaces MCP server. mcp=missing: nothing does yet.
 config="${CODEX_HOME:-$HOME/.codex}/config.toml"
-if grep -qs '"spaces"' "$plugin_root/.mcp.json"; then mcp=plugin
-elif grep -qs '^\[mcp_servers\.spaces[].]' "$config"; then mcp=config
-else mcp=missing
-fi
+if grep -qs '^\[mcp_servers\.spaces[].]' "$config"; then mcp=config; else mcp=missing; fi
 
 agents=""
 for a in claude codex opencode; do

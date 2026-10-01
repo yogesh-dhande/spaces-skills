@@ -10,14 +10,14 @@ npx skills add yogesh-dhande/spaces-skills
 
 ### As a ChatGPT / Codex plugin
 
-This repo is also a plugin: the five skills plus the Spaces MCP server (`bin/spaces-mcp`, which runs `spaces mcp`). It runs on the Mac where Spaces is installed, so it works in the ChatGPT desktop app and Codex, not on the web or phone.
+This repo is also a skills-only plugin. It works on the Mac where Spaces is installed, in the ChatGPT desktop app (Work mode) and Codex, not on the web or phone.
 
 ```sh
 codex plugin marketplace add yogesh-dhande/spaces-skills
 codex plugin add spaces@spaces
 ```
 
-Then restart the ChatGPT desktop app.
+Then restart the ChatGPT desktop app and ask it to set up Spaces. The setup skill installs Spaces if needed and, with your permission, registers the Spaces MCP server (`spaces mcp`) in `~/.codex/config.toml`, which both ChatGPT and Codex read.
 
 ## Skills
 

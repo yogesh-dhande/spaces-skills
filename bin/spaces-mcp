@@ -1,8 +1,0 @@
-#!/bin/sh
-# Start the Spaces MCP server from wherever the Spaces app installed its CLI.
-# GUI hosts like the ChatGPT desktop app may not have the CLI on PATH.
-for cli in "$HOME/.spaces/bin/spaces" /usr/local/bin/spaces "$(command -v spaces)"; do
-  [ -x "$cli" ] && exec "$cli" mcp
-done
-echo "Spaces CLI not found. Install Spaces from https://usespaces.dev" >&2
-exit 1

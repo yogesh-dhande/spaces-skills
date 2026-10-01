@@ -25,7 +25,6 @@
     "mac"
   ],
   "skills": "./skills/",
-  "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Spaces: Coding Agents",
     "shortDescription": "Chats to Claude/Codex/OpenCode",
