@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "spaces": {
+      "command": "/bin/sh",
+      "args": [
+        "-c",
+        "exec ./bin/spaces-mcp"
+      ],
+      "cwd": ".",
+      "tools": {
+        "spaces_project_list": {
+          "approval_mode": "approve"
+        },
+        "spaces_workspace_list": {
+          "approval_mode": "approve"
+        },
+        "spaces_terminal_list": {
+          "approval_mode": "approve"
+        },
+        "spaces_terminal_tail": {
+          "approval_mode": "approve"
+        },
+        "spaces_agent_list": {
+          "approval_mode": "approve"
+        },
+        "spaces_agent_status": {
+          "approval_mode": "approve"
+        },
+        "spaces_agent_brief_read": {
+          "approval_mode": "approve"
+        },
+        "spaces_device_list": {
+          "approval_mode": "approve"
+        },
+        "spaces_agent_subscribe": {
+          "approval_mode": "approve"
+        },
+        "spaces_agent_unsubscribe": {
+          "approval_mode": "approve"
+        }
+      }
+    }
+  }
+}

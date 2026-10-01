@@ -1,0 +1,47 @@
+{
+  "name": "spaces",
+  "version": "0.1.0",
+  "description": "Hand off a conversation to Claude Code, Codex, or OpenCode on your Mac, and check on the coding agents you have running.",
+  "author": {
+    "name": "Yogesh Dhande",
+    "url": "https://usespaces.dev"
+  },
+  "homepage": "https://usespaces.dev",
+  "repository": "https://github.com/yogesh-dhande/spaces-skills",
+  "keywords": [
+    "spaces",
+    "claude code",
+    "codex",
+    "opencode",
+    "coding agent",
+    "handoff",
+    "hand off",
+    "delegate",
+    "git branch",
+    "worktree",
+    "parallel agents",
+    "agent status",
+    "unblock",
+    "mac"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Spaces: Coding Agents",
+    "shortDescription": "Chats to Claude/Codex/OpenCode",
+    "longDescription": "Use Spaces when you want a coding agent on your Mac to take over work you planned in this conversation, or to check on agents that are already running.\n\nSay \"start this in Claude Code,\" \"hand this off to Codex,\" or \"kick this off on a separate branch.\" Spaces creates a fresh workspace on its own git branch in your project, starts the agent you choose (Claude Code, Codex, or OpenCode), and gives it a brief written from this conversation, so you never write a handoff prompt yourself.\n\nLater, ask \"what are my coding agents doing?\" or \"is anything stuck?\" for a status roll-up across your Mac and paired machines, with blocked agents first and their exact questions quoted. Say \"unblock my agents\" to clear routine startup prompts; real decisions always come back to you.\n\nNot for writing or explaining code in the chat itself. Spaces runs agents on your own machines, not in the cloud.\n\nWorks in the ChatGPT desktop app (Work mode) and Codex. Requires the free Spaces app on your Mac: usespaces.dev",
+    "developerName": "Yogesh Dhande",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://usespaces.dev",
+    "defaultPrompt": [
+      "Start this in Claude Code on my Mac",
+      "Hand this plan off to Codex on a new branch",
+      "What are my coding agents doing?"
+    ],
+    "logo": "./assets/logo.png"
+  }
+}
